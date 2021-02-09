@@ -123,11 +123,9 @@ static void printf_num(long int n, int width, int preciz, int base)
 	len = 11 - i;
 	preciz -= len;
 	width -= len + (preciz * (preciz > 0) + signe);
-	if (width > 0)
-		p_width(width);
+	p_width(width);
 	ft_write ( "-", (signe));
-	if (preciz > 0)
-		p_preciz(preciz);
+	p_preciz(preciz);
 	ft_write( tmp + i, len);
 }
 
