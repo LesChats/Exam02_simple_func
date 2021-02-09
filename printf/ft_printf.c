@@ -167,8 +167,10 @@ static void	parser(const char **s, va_list *ap)
 		printf_num((long int)va_arg(*ap, int), width, preciz, 10);
 	else if (**s == 'x')
 		printf_num((long int)va_arg(*ap, unsigned), width, preciz, 16);
-	else
+	else if (**s == '%')
 		ft_write("%", 1);
+	else
+		--(*s);
 }
 
 /*
