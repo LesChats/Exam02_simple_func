@@ -90,9 +90,7 @@ static void print_string(const char *s, int width, int preciz)
 {
 	const int len = MIN((unsigned)preciz, ft_strlen(s));
 	
-	width -= len;
-	if (width > 0)
-		p_width(width);
+	p_width(width - len);
 	if (!s)
 		ft_write("(null)", len);
 	else
@@ -151,7 +149,7 @@ static int	ft_atoii(const char **s)
 **	Un parser ^^
 */
 
-void parser(const char **s, va_list *ap)
+static void	parser(const char **s, va_list *ap)
 {
 	int width = 0;
 	int preciz = -1;
@@ -177,7 +175,7 @@ void parser(const char **s, va_list *ap)
 **	La fonction ft_printf
 */
 
-int ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	const char	*pc;
 	va_list		ap;
