@@ -182,20 +182,17 @@ void parser(const char **s, va_list *ap)
 int ft_printf(const char *format, ...)
 {
 	const char	*pc;
-	int			tmp;
 	va_list		ap;
 
 	va_start(ap, format);
 	 while (*(pc = find_pc(format)))
 	 {
-		 tmp = pc - format;
-		 ft_write(format, tmp);
+		 ft_write(format, pc - format;);
 		 format = pc + 1;
 		 parser(&format, &ap);
 		 ++format;
 	 }
-	tmp = pc - format;
-	return (ft_write(format, tmp));
+	return (ft_write(format, pc - format;));
 }
 
 /*
