@@ -185,12 +185,12 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	 while (*(pc = find_pc(format)))
 	 {
-		 ft_write(format, pc - format;);
+		 ft_write(format, pc - format);
 		 format = pc + 1;
 		 parser(&format, &ap);
 		 ++format;
 	 }
-	return (ft_write(format, pc - format;));
+	return (ft_write(format, pc - format));
 }
 
 /*
