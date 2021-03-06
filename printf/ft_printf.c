@@ -112,7 +112,7 @@ static void printf_num(long int n, int width, int preciz, int base)
 	if (signe)
 		n = -n;
 	else if (!n)
-		tmp[i--] = '0';
+		tmp[--i] = '0';
 	while (n)
 	{
 		tmp[--i] = t[n % base];
