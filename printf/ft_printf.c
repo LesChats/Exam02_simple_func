@@ -90,11 +90,18 @@ static void print_string(const char *s, int width, int preciz)
 {
 	const int len = MIN((unsigned)preciz, ft_strlen(s));
 	
-	p_width(width - len);
 	if (!s)
-		ft_write("(null)", len);
-	else
-		ft_write(s, len);
+	{
+		if (preciz == -1 || preciz > 5)
+		{
+			p_width(width - 6);
+			ft_write("(null)", 6);
+			return ;
+		}
+		return (p_width(width));
+	}
+	ft_write(s, len);
+	p_width(width - len);
 }
 
 /*
