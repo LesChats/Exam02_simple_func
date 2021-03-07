@@ -6,7 +6,7 @@
 /*   By: abaudot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:04:59 by abaudot           #+#    #+#             */
-/*   Updated: 2021/03/07 13:10:46 by abaudot          ###   ########.fr       */
+/*   Updated: 2021/02/08 21:14:02 by abaudot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,18 @@ static void print_string(const char *s, int width, int preciz)
 {
 	const int len = MIN((unsigned)preciz, ft_strlen(s));
 	
-	p_width(width - len);
 	if (!s)
-		ft_write("(null)", len);
-	else
-		ft_write(s, len);
+	{
+		if (preciz == -1 || preciz > 5)
+		{
+			p_width(width - 6);
+			ft_write("(null)", 6);
+			return ;
+		}
+		return (p_width(width));
+	}
+	ft_write(s, len);
+	p_width(width - len);
 }
 
 /*
@@ -196,7 +203,6 @@ int		ft_printf(const char *format, ...)
 /*
 **	just pour tester
 */
-
 /*
 int main(int ac, char **av)
 {
