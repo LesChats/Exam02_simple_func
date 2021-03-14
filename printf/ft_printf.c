@@ -6,7 +6,7 @@
 /*   By: abaudot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:04:59 by abaudot           #+#    #+#             */
-/*   Updated: 2021/03/07 13:10:46 by abaudot          ###   ########.fr       */
+/*   Updated: 2021/03/14 11:15:32 by abaudot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static int ft_write(const char * s, int n)
 	static int ans = 0;
 
 	ans += n;
-	write(1, s, n);
+	if (n > 0)
+		write(1, s, n);
 	return (ans);
 }
 
@@ -181,8 +182,11 @@ int		ft_printf(const char *format, ...)
 {
 	const char	*pc;
 	va_list		ap;
+	int			check;
 
 	va_start(ap, format);
+	if (check = ft_write("if static is not set to zero", 0))
+		ft_write("set it to zero", -check);
 	 while (*(pc = find_pc(format)))
 	 {
 		 ft_write(format, pc - format);
@@ -196,10 +200,10 @@ int		ft_printf(const char *format, ...)
 /*
 **	just pour tester
 */
-
 /*
 int main(int ac, char **av)
 {
+	ft_printf("hello my girls");
 	int i = ft_printf(av[1], av[2]);
 	printf("|\n");
 	int j = printf(av[1], av[2]);
